@@ -4,8 +4,8 @@ path ='phone_book.txt'
 
 def load_data_base():
     with open(path, 'r', encoding='UTF-8') as file:
-        phone_book = file.readlines()
-    phone_book.set_phone_book(str_to_list(phone_book))
+        phone_book_perm = file.readlines()
+    phone_book.set_phone_book(str_to_list(phone_book_perm))
 
 def str_to_list(phone_book):
     new_phone_book = []
@@ -26,4 +26,6 @@ def list_to_str():
     new_phone_book[-1]=new_phone_book[-1][:-1]
     return ''.join(new_phone_book)
 
+
+# def find_contact():
 

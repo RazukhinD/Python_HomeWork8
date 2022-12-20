@@ -14,6 +14,6 @@ with open(path, 'r', encoding='UTF-8') as file:
     phone_book = file.readlines()
     print(phone_book)
 str_to_list(phone_book)
-phone_book.set_phone_book(str_to_list(phone_book))
+phone_book.set_phone_book(phone_book)
 print(phone_book)
 

@@ -1,9 +1,6 @@
 import view
 import phone_book as pb
 import data_base as db
-
-
-
 def main_menu(choice):
     match choice:
         case 1:
@@ -16,18 +13,25 @@ def main_menu(choice):
             db.save_data_base()
             view.save_success()
         case 4:
-            contact = view.input_new_contact()
+            contact=view.input_new_contact()
             pb.add_contact(contact)
         case 5:
-            pass
+            phone_book = pb.get_phone_book()
+            view.print_phone_book(phone_book)
+            id = view.input_change_contact()
+            if pb.change_contact(id):
+                db.save_data_base()
+                view.change_success()
         case 6:
             phone_book = pb.get_phone_book()
             view.print_phone_book(phone_book)
-            id=view.input_remove_contact()
+            id = view.input_remove_contact()
             if pb.remove_contact(id):
                 view.remove_success()
         case 7:
-            pass
+            phone_book = pb.get_phone_book()
+            search_text = view.input_search_text()
+            pb.find_contact(search_text,phone_book)
         case 0:
             return True
 def start():
